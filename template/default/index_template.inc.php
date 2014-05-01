@@ -423,36 +423,6 @@ if (isset($_GET['p']))
     </div>
   </div>
 
-  <?php
-  // Promoted titles
-  // Only show at the homepage
-  if(  !( isset($_GET['search']) || isset($_GET['title']) || isset($_GET['keywords']) || isset($_GET['p']) ) ) :
-    // query top book
-    $topbook = $dbs->query('SELECT biblio_id, title, image FROM biblio WHERE
-        promoted=1 ORDER BY last_update LIMIT 10');
-    if ($num_rows = $topbook->num_rows) :
-  ?>
-  <div class="row topbook-container">
-      <div class="span8 offset2">
-        <ul id="topbook" class="jcarousel-skin-tango">
-          <?php
-          while ($book = $topbook->fetch_assoc()) {
-            if (!empty($book['image'])) :
-            ?>
-            <li class="book"><a href="./index.php?p=show_detail&id=<?php echo $book['biblio_id'] ?>" title="<?php echo $book['title'] ?>"><img src="images/docs/<?php echo $book['image'] ?>" /></a></li>
-            <?php
-            else:
-            ?>
-            <li class="book"><a href="./index.php?p=show_detail&id=<?php echo $book['biblio_id'] ?>" title="<?php echo $book['title'] ?>"><img src="./template/default/img/nobook.png" /></a></li>
-            <?php
-            endif;
-          }
-          ?>
-        </ul>
-      </div>
-  </div>
-    <?php endif; ?>
-  <?php endif; ?>
 
 </div>  <!--// End Content Ouput //-->
 
