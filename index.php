@@ -134,4 +134,3 @@ if(!function_exists ("freichatx_get_hash")) {
 <script type="text/javascript" language="javascipt" src="http://localhost/slims7_cendana_wchat/freichat/client/main.php?id=<?php echo $ses;?>&xhash=<?php echo freichatx_get_hash($ses); ?>"></script>
 <link rel="stylesheet" href="http://localhost/slims7_cendana_wchat/freichat/client/jquery/freichat_themes/freichatcss.php" type="text/css">
 <!--===========================FreiChatX=======END=========================-->                
-<?php #var_dump ($_SESSION); ?>
