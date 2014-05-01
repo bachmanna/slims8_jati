@@ -106,7 +106,7 @@ $main_content = ob_get_clean();
 // template output
 require $sysconf['template']['dir'].'/'.$sysconf['template']['theme'].'/index_template.inc.php';
 
-#################################################################
+##############################FreiChat#####Start###################################
 $ses = null;
 
 if (isset($_SESSION['mid'])) {
@@ -120,8 +120,8 @@ if (isset($_SESSION['mid'])) {
 if(!function_exists ("freichatx_get_hash")) {
   function freichatx_get_hash ($ses)
   {
-    if(is_file ("/var/www/slims7_cendana_wchat/freichat/hardcode.php")) {
-      require "/var/www/slims7_cendana_wchat/freichat/hardcode.php";
+    if(is_file ("freichat/hardcode.php")) {
+      require "freichat/hardcode.php";
       $temp_id =  $ses . $uid;
       return md5($temp_id);
     } else {
@@ -131,6 +131,6 @@ if(!function_exists ("freichatx_get_hash")) {
   }
 }
 ?>
-<script type="text/javascript" language="javascipt" src="http://localhost/slims7_cendana_wchat/freichat/client/main.php?id=<?php echo $ses;?>&xhash=<?php echo freichatx_get_hash($ses); ?>"></script>
-<link rel="stylesheet" href="http://localhost/slims7_cendana_wchat/freichat/client/jquery/freichat_themes/freichatcss.php" type="text/css">
+<script type="text/javascript" language="javascipt" src="./freichat/client/main.php?id=<?php echo $ses;?>&xhash=<?php echo freichatx_get_hash($ses); ?>"></script>
+<link rel="stylesheet" href="./freichat/client/jquery/freichat_themes/freichatcss.php" type="text/css">
 <!--===========================FreiChatX=======END=========================-->                
